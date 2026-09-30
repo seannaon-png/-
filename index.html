@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<meta name="description" content="한국에너지기술연구원 대기청정연구실 선임기술원 김수현의 연구 포트폴리오 — 촉매 개질, 가스화, 건조·반탄화, 대기오염물질 저감 공정 연구.">
+<title>김수현 연구 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@400;500&family=Instrument+Sans:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500&display=swap">
+<style>
+/* Layout: 버건디/크림 섹션 교차, 사진 자리는 연구 소재를 그린 도판(Fig.)으로, 연구 분야는 스크롤 고정 가로 이동 구간 */
+:root {
+  --burgundy-900: #340100;
+  --cream-50:     #F4EFE9;
+  --rose-100:     #E5D6D3;
+  --rose-200:     #D9BFBE;
+  --rose-300:     #E7C1C0;
+  --mauve-500:    #8A6B69;
+  --taupe-400:    #93847F;
+  --line-light:   rgba(52, 1, 0, .16);
+  --line-dark:    rgba(244, 239, 233, .18);
+
+  --serif: "Cormorant Garamond", "Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
+  --sans:  "Instrument Sans", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: clamp(19px, 1.6vw, 22px);
+  --fs-xl: clamp(26px, 2.8vw, 36px);
+  --fs-2xl: clamp(32px, 4.4vw, 58px);
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --ease: cubic-bezier(.2, .7, .1, 1);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--cream-50);
+  color: var(--burgundy-900);
+  font-family: var(--sans);
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--rose-300); outline-offset: 3px; }
+.tone-light :focus-visible { outline-color: var(--mauve-500); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.22; letter-spacing: -0.01em; }
+p { margin: 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- 공통 구성 ---------- */
+.band { padding-inline: var(--gutter); position: relative; }
+.tone-dark { background: var(--burgundy-900); color: var(--cream-50); }
+.tone-light { background: var(--cream-50); color: var(--burgundy-900); }
+.eyebrow {
+  font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase;
+  display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; opacity: .8;
+}
+.eyebrow span + span::before { content: "·"; margin-right: 12px; }
+.lede { font-size: var(--fs-md); max-width: 34em; }
+.tone-dark .muted { color: var(--rose-200); }
+.tone-light .muted { color: var(--mauve-500); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: var(--fs-sm); letter-spacing: .02em;
+  padding: 12px 18px; border-radius: 2px;
+  background: var(--rose-100); color: var(--burgundy-900);
+  transition: background .3s var(--ease);
+}
+.btn:hover { background: var(--rose-200); }
+.tone-dark .btn { background: var(--mauve-500); color: var(--cream-50); }
+.tone-dark .btn:hover { background: #9c7c79; }
+.btn .arrow { font-family: var(--serif); font-size: 16px; line-height: 1; }
+
+/* 호버 시 글자가 위로 굴러 바뀌는 링크 */
+.roll { display: inline-block; overflow: hidden; vertical-align: bottom; line-height: 1.25; height: 1.25em; }
+.roll > span { display: block; transition: transform .5s var(--ease); }
+a:hover .roll > span, button:hover .roll > span, a:focus-visible .roll > span { transform: translateY(-100%); }
+
+/* ---------- 헤더 ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 30;
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) var(--gutter) 18px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  color: var(--cream-50);
+  transition: color .4s var(--ease), background .4s var(--ease);
+}
+.site-header.on-light { color: var(--burgundy-900); background: rgba(244, 239, 233, .92); }
+.site-header.on-dark.scrolled { background: rgba(52, 1, 0, .88); }
+.menu-btn { display: inline-flex; align-items: center; gap: 12px; font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase; justify-self: start; }
+.menu-btn .bars { width: 26px; height: 8px; position: relative; }
+.menu-btn .bars::before, .menu-btn .bars::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: currentColor; transition: transform .4s var(--ease); }
+.menu-btn .bars::before { top: 0; }
+.menu-btn .bars::after { bottom: 0; }
+.logo { font-size: 13px; letter-spacing: .3em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+.logo i { font-style: normal; color: var(--rose-300); }
+.on-light .logo i { color: var(--mauve-500); }
+.header-cta { justify-self: end; font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase; }
+
+/* 전체 화면 메뉴 */
+.menu {
+  position: fixed; inset: 0; z-index: 40; background: var(--burgundy-900); color: var(--cream-50);
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 28px);
+  display: grid; grid-template-rows: auto 1fr auto; gap: 24px;
+  opacity: 0; visibility: hidden; transition: opacity .45s var(--ease), visibility .45s;
+}
+.menu.open { opacity: 1; visibility: visible; }
+.menu-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.menu nav { align-self: center; display: grid; gap: 6px; }
+.menu nav a { font-family: var(--serif); font-size: clamp(34px, 6vw, 72px); line-height: 1.15; display: flex; align-items: baseline; gap: 18px; }
+.menu nav a small { font-family: var(--sans); font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--rose-200); min-width: 7em; }
+.menu-foot { display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: var(--fs-sm); color: var(--rose-200); border-top: 1px solid var(--line-dark); padding-top: 20px; }
+
+/* ---------- 히어로 ---------- */
+.hero { padding-top: 140px; padding-bottom: 72px; min-height: 640px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: end; overflow: hidden; }
+.hero-text { display: grid; gap: 28px; position: relative; z-index: 2; padding-bottom: 12px; }
+.hero h1 { font-size: var(--fs-2xl); max-width: 13em; }
+.hero h1 em { font-style: italic; color: var(--rose-300); }
+.hero .lede { color: var(--rose-100); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-actions .btn.ghost { background: transparent; box-shadow: inset 0 0 0 1px var(--line-dark); color: var(--cream-50); }
+.hero-actions .btn.ghost:hover { background: rgba(244, 239, 233, .06); }
+.hero-visual { position: relative; align-self: stretch; min-height: 460px; display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+.hero-visual canvas { width: 100%; height: 100%; display: block; }
+figcaption, .fig-cap { font-size: var(--fs-xs); letter-spacing: .02em; line-height: 1.5; }
+.tone-dark figcaption { color: var(--rose-200); }
+.tone-light figcaption { color: var(--mauve-500); }
+figcaption b { font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-right: 8px; }
+
+/* ---------- 소개 ---------- */
+.about { padding-block: 120px; display: grid; grid-template-columns: minmax(0, 47fr) minmax(0, 53fr); gap: clamp(32px, 6vw, 96px); align-items: center; padding-left: 0; }
+.about figure { margin: 0; display: grid; gap: 12px; }
+.tray { background: var(--rose-200); padding: clamp(20px, 3vw, 40px); aspect-ratio: 4 / 3.1; max-width: 100%; display: grid; place-items: center; }
+.tray svg { width: 100%; height: auto; display: block; }
+.about figcaption { padding-left: var(--gutter); }
+.about-text { display: grid; gap: 28px; justify-items: end; text-align: right; }
+.about-text h2 { font-size: var(--fs-xl); max-width: 14em; }
+.about-text .lede { max-width: 30em; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; width: 100%; max-width: 560px; border-top: 1px solid var(--line-light); }
+.stat { padding: 16px 0 0; display: grid; gap: 2px; text-align: right; }
+.stat + .stat { border-left: 1px solid var(--line-light); }
+.stat strong { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; font-variant-numeric: tabular-nums lining-nums; padding-right: 14px; }
+.stat span { font-size: var(--fs-xs); color: var(--mauve-500); padding-right: 14px; }
+
+/* ---------- 연구 분야 (스크롤 고정 가로 이동) ---------- */
+.research { padding-inline: 0; }
+.research-sticky { position: sticky; top: 0; height: 100vh; min-height: 560px; overflow: hidden; display: grid; grid-template-columns: minmax(280px, 34%) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: center; padding: 96px 0 56px var(--gutter); }
+.research-intro { display: grid; gap: 24px; align-self: center; }
+.research-intro h2 { font-size: var(--fs-xl); }
+.research-intro .lede { color: var(--rose-100); max-width: 28em; }
+.progress { height: 1px; background: var(--line-dark); width: 100%; max-width: 240px; position: relative; }
+.progress i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--rose-300); }
+.track-view { overflow: hidden; min-width: 0; height: 100%; display: flex; align-items: center; }
+.track { display: flex; gap: 20px; padding-right: var(--gutter); will-change: transform; }
+.card { flex: 0 0 clamp(280px, 26vw, 360px); display: grid; gap: 18px; align-content: start; }
+.swatch { aspect-ratio: 4 / 5; max-width: 100%; position: relative; overflow: hidden; }
+.swatch svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card .tag { font-size: var(--fs-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--rose-200); }
+.card h3 { font-size: var(--fs-lg); line-height: 1.35; }
+.card p { font-size: var(--fs-sm); color: var(--rose-100); line-height: 1.65; }
+.card .out { font-size: var(--fs-xs); color: var(--rose-200); border-top: 1px solid var(--line-dark); padding-top: 12px; font-variant-numeric: tabular-nums; }
+.card:hover .swatch svg { transform: scale(1.04); }
+.swatch svg { transition: transform 1.2s var(--ease); }
+
+.research.static .research-sticky { position: relative; height: auto; min-height: 0; grid-template-columns: 1fr; padding: 96px var(--gutter) 88px; }
+.research.static .track-view { height: auto; overflow: visible; }
+.research.static .track { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 40px 20px; padding-right: 0; transform: none !important; width: 100%; }
+.research.static .progress { display: none; }
+.research.static .swatch { aspect-ratio: 16 / 10; }
+
+/* ---------- 경력 ---------- */
+.career { padding-block: 120px; padding-right: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .82fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.career-text { display: grid; gap: 40px; }
+.career-text h2 { font-size: var(--fs-xl); max-width: 15em; }
+.timeline { display: grid; border-top: 1px solid var(--line-light); }
+.row { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line-light); align-items: baseline; }
+.row time { font-size: var(--fs-sm); color: var(--mauve-500); font-variant-numeric: tabular-nums; }
+.row strong { font-weight: 500; display: block; }
+.row span { font-size: var(--fs-sm); color: var(--mauve-500); }
+.sub-h { font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--mauve-500); margin-bottom: 14px; display: block; }
+.portrait { margin: 0; position: sticky; top: 110px; display: grid; gap: 12px; }
+.portrait .frame { background: var(--burgundy-900); aspect-ratio: 4 / 5; max-width: 100%; position: relative; overflow: hidden; display: grid; place-items: center; }
+.portrait .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait .frame .mono { width: 58%; color: var(--rose-300); }
+.portrait figcaption { color: var(--mauve-500); }
+
+/* ---------- 논문 ---------- */
+.pubs { padding-block: 120px; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: 48px; }
+.sec-head h2 { font-size: var(--fs-xl); max-width: 16em; margin-top: 18px; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font-size: var(--fs-sm); padding: 8px 14px; border-radius: 2px; box-shadow: inset 0 0 0 1px var(--line-dark); color: var(--rose-100); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--mauve-500); color: var(--cream-50); box-shadow: none; }
+.tone-light .chip { box-shadow: inset 0 0 0 1px var(--line-light); color: var(--burgundy-900); }
+.pub-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-dark); }
+.pub { display: grid; grid-template-columns: 5em minmax(0, 1fr) minmax(0, 15em); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line-dark); align-items: baseline; }
+.pub .yr { font-family: var(--serif); font-size: 24px; line-height: 1; font-variant-numeric: lining-nums; color: var(--rose-300); }
+.pub h3 { font-size: 20px; line-height: 1.35; margin-bottom: 8px; }
+.pub h3 a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .5s var(--ease); }
+.pub h3 a:hover, .pub h3 a:focus-visible { background-size: 100% 1px; }
+.pub h3 a .ext { font-family: var(--sans); font-size: 12px; color: var(--rose-200); margin-left: 6px; }
+.pub .au { font-size: var(--fs-xs); color: var(--rose-200); line-height: 1.6; }
+.pub .au b { color: var(--cream-50); font-weight: 500; }
+.pub .jr { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--rose-100); line-height: 1.35; }
+.pub .jr small { display: block; font-family: var(--sans); font-style: normal; font-size: var(--fs-xs); color: var(--rose-200); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.first-mark { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--burgundy-900); background: var(--rose-300); padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: 3px; font-family: var(--sans); white-space: nowrap; }
+.talks { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.talk { border-top: 1px solid var(--rose-300); padding-top: 16px; display: grid; gap: 10px; align-content: start; }
+.talk .kind { font-size: var(--fs-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--rose-200); }
+.talk h3 { font-size: 19px; line-height: 1.4; }
+.talk p { font-size: var(--fs-sm); color: var(--rose-100); }
+
+/* ---------- 특허 + 진술 ---------- */
+.patents { padding-block: 140px 120px; overflow: hidden; }
+.statement { display: grid; justify-items: end; margin-bottom: 120px; position: relative; z-index: 2; }
+.fill-text { font-family: var(--serif); font-size: var(--fs-xl); line-height: 1.45; max-width: 21em; text-align: right; }
+.fill-text .w { transition: color .35s linear; }
+.fill-text .w.dim { color: var(--taupe-400); }
+.big-mono { position: absolute; left: -6vw; bottom: -14vw; width: 52vw; max-width: 760px; color: var(--rose-200); z-index: 0; pointer-events: none; opacity: .7; }
+.pat-wrap { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: clamp(32px, 6vw, 96px); }
+.pat-intro { display: grid; gap: 20px; align-content: start; position: sticky; top: 110px; }
+.pat-intro h2 { font-size: var(--fs-xl); }
+.pat-year { display: grid; grid-template-columns: 4.2em minmax(0, 1fr); gap: 20px; border-top: 1px solid var(--line-light); padding: 18px 0 8px; }
+.pat-year h3 { font-size: 26px; line-height: 1; font-variant-numeric: lining-nums; }
+.pat-year h3 small { display: block; font-family: var(--sans); font-size: var(--fs-xs); color: var(--mauve-500); margin-top: 6px; }
+.pat-year ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.pat-year li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 6px 0 10px; font-size: var(--fs-md); line-height: 1.55; }
+.pat-year li time { font-size: var(--fs-xs); color: var(--mauve-500); font-variant-numeric: tabular-nums; white-space: nowrap; padding-top: 3px; }
+
+/* ---------- 연구 과제 ---------- */
+.projects { padding-block: 120px; }
+.proj-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-dark); }
+.proj { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) minmax(0, 13em) 11em; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line-dark); align-items: baseline; }
+.pill { font-size: 11px; letter-spacing: .08em; padding: 3px 9px; border-radius: 2px; justify-self: start; white-space: nowrap; }
+.pill.on { background: var(--rose-300); color: var(--burgundy-900); }
+.pill.off { box-shadow: inset 0 0 0 1px var(--line-dark); color: var(--rose-200); }
+.proj h3 { font-family: var(--sans); font-weight: 400; font-size: var(--fs-md); line-height: 1.55; }
+.proj .ag { font-size: var(--fs-sm); color: var(--rose-200); }
+.proj time { font-size: var(--fs-xs); color: var(--rose-200); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+/* ---------- 연락 ---------- */
+.contact { padding-block: 140px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: end; }
+.contact h2 { font-size: var(--fs-2xl); max-width: 10em; }
+.contact-info { display: grid; gap: 0; border-top: 1px solid var(--line-light); }
+.ci { display: grid; grid-template-columns: 6em minmax(0, 1fr) auto; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-light); align-items: baseline; }
+.ci dt { font-size: var(--fs-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--mauve-500); }
+.ci dd { margin: 0; user-select: all; overflow-wrap: anywhere; }
+.copy-btn { font-size: var(--fs-xs); letter-spacing: .08em; color: var(--mauve-500); white-space: nowrap; }
+.copy-btn.done { color: var(--burgundy-900); }
+
+/* ---------- 푸터 ---------- */
+.footer { padding-block: 96px calc(env(safe-area-inset-bottom, 0px) + 32px); display: grid; justify-items: center; gap: 22px; text-align: center; }
+.footer .mono { width: 64px; color: var(--rose-300); }
+.footer .logo { font-size: 18px; color: var(--rose-300); }
+.footer .logo i { color: var(--cream-50); }
+.slogan { font-size: var(--fs-xs); letter-spacing: .24em; text-transform: uppercase; color: var(--rose-200); line-height: 2; }
+.footer address { font-style: normal; font-size: var(--fs-sm); color: var(--rose-100); }
+.foot-nav { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--line-dark); font-size: var(--fs-xs); letter-spacing: .16em; text-transform: uppercase; }
+.foot-meta { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: var(--fs-xs); color: var(--rose-200); }
+
+/* 화면 진입 시 순차 등장 (스크립트가 화면 밖 요소에만 적용) */
+.pre { opacity: 0; transform: translateY(14px); }
+.shown { opacity: 1; transform: none; transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1080px) {
+  .proj { grid-template-columns: 6.5em minmax(0, 1fr) 10.5em; }
+  .proj .ag { grid-column: 2; grid-row: 2; margin-top: -10px; }
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 120px; min-height: 0; }
+  .hero-visual { min-height: 340px; order: -1; }
+  .about { grid-template-columns: 1fr; padding-left: var(--gutter); padding-block: 88px; }
+  .about figcaption { padding-left: 0; }
+  .about-text { justify-items: start; text-align: left; }
+  .stat, .stat span { text-align: left; }
+  .stat strong { padding-right: 0; }
+  .stat + .stat { border-left: 0; }
+  .career { grid-template-columns: 1fr; padding-right: var(--gutter); padding-block: 88px; }
+  .portrait { position: relative; top: 0; max-width: 420px; }
+  .pub { grid-template-columns: 4em minmax(0, 1fr); }
+  .pub .jr { grid-column: 2; }
+  .talks { grid-template-columns: 1fr; }
+  .pat-wrap { grid-template-columns: 1fr; }
+  .pat-intro { position: relative; top: 0; }
+  .contact { grid-template-columns: 1fr; padding-block: 96px; }
+  .sec-head { grid-template-columns: 1fr; }
+  .header-cta { display: none; }
+  .site-header { grid-template-columns: 1fr auto; }
+  .logo { justify-self: end; }
+  .menu-top { grid-template-columns: 1fr auto; }
+}
+@media (max-width: 560px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 0; }
+  .row { grid-template-columns: 1fr; gap: 2px; }
+  .proj { grid-template-columns: 1fr; gap: 6px; }
+  .proj .ag { grid-column: auto; grid-row: auto; margin-top: 0; }
+  .proj time { text-align: left; }
+  .pat-year { grid-template-columns: 1fr; gap: 10px; }
+  .pat-year li { grid-template-columns: 1fr; gap: 0; }
+  .ci { grid-template-columns: 1fr auto; }
+  .ci dt { grid-column: 1 / -1; }
+  .fill-text { text-align: left; }
+  .statement { justify-items: start; }
+  .menu-btn .lbl { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roll > span, .shown, .swatch svg, .menu { transition: none !important; }
+  .pre { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- S와 K를 겹친 모노그램 -->
+    <symbol id="mono" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <text x="84" y="138" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="118" fill="none" stroke="currentColor" stroke-width="1.4">S</text>
+      <text x="116" y="138" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="118" font-style="italic" fill="currentColor">K</text>
+      <line x1="30" y1="170" x2="170" y2="30" stroke="currentColor" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header on-dark" id="siteHeader">
+  <button class="menu-btn" id="menuOpen" aria-expanded="false" aria-controls="menu">
+    <span class="bars" aria-hidden="true"></span><span class="lbl roll">Menu</span>
+  </button>
+  <a class="logo" href="#top" aria-label="김수현 포트폴리오 처음으로">Soohyun K<i>/</i>m</a>
+  <a class="header-cta" href="#contact"><span class="roll">Contact</span></a>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="사이트 메뉴">
+  <div class="menu-top">
+    <button class="menu-btn" id="menuClose"><span class="bars" aria-hidden="true" style="transform:none"></span><span class="lbl roll">Close</span></button>
+    <span class="logo">Soohyun K<i>/</i>m</span>
+  </div>
+  <nav aria-label="주요 메뉴">
+    <a href="#about"><small>About</small><span class="roll">소개</span></a>
+    <a href="#research"><small>Research</small><span class="roll">연구 분야</span></a>
+    <a href="#career"><small>Career</small><span class="roll">경력과 학력</span></a>
+    <a href="#publications"><small>Publications</small><span class="roll">논문과 발표</span></a>
+    <a href="#patents"><small>Patents</small><span class="roll">특허</span></a>
+    <a href="#projects"><small>Projects</small><span class="roll">연구 과제</span></a>
+    <a href="#contact"><small>Contact</small><span class="roll">연락처</span></a>
+  </nav>
+  <div class="menu-foot">
+    <span>soohyun@kier.re.kr</span>
+    <span>042-860-3719</span>
+    <span>한국에너지기술연구원 대기청정연구실</span>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- 1. 히어로 -->
+  <section class="band hero tone-dark" data-tone="dark" aria-labelledby="heroTitle">
+    <div class="hero-text">
+      <p class="eyebrow"><span>Korea Institute of Energy Research</span><span>대기청정연구실</span></p>
+      <h1 id="heroTitle">탄소 자원을 다루는 공정, <em>실험실</em>에서 실증 설비까지.</h1>
+      <p class="lede">촉매 개질과 가스화, 건조·반탄화 반응기, 대기오염물질 저감 공정을 연구하는 한국에너지기술연구원 선임기술원 김수현입니다.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#research"><span class="roll">연구 분야 보기</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#contact"><span class="roll">연락하기</span></a>
+      </div>
+    </div>
+    <figure class="hero-visual" style="margin:0">
+      <canvas id="combCanvas" aria-hidden="true"></canvas>
+      <figcaption><b>Fig. 01</b>역흐름 다중 방해판(COMB) 반응기 안에서 입자가 방해판을 타고 내려가고, 열풍이 거슬러 올라가는 흐름</figcaption>
+    </figure>
+  </section>
+
+  <!-- 2. 소개 -->
+  <section class="band about tone-light" id="about" data-tone="light" aria-labelledby="aboutTitle">
+    <figure>
+      <div class="tray">
+        <svg viewBox="0 0 480 360" role="img" aria-label="연구에 쓰인 촉매·지지체·탄소 소재 12종을 담은 시료 트레이 그림">
+          <defs>
+            <radialGradient id="g1" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#8A6B69"/><stop offset="1" stop-color="#340100"/></radialGradient>
+            <radialGradient id="g2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#F4EFE9"/><stop offset="1" stop-color="#D9BFBE"/></radialGradient>
+            <radialGradient id="g3" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#93847F"/><stop offset="1" stop-color="#4a2a28"/></radialGradient>
+            <radialGradient id="g4" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#E7C1C0"/><stop offset="1" stop-color="#8A6B69"/></radialGradient>
+            <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#F4EFE9" opacity=".35"/></pattern>
+          </defs>
+          <rect x="6" y="6" width="468" height="348" rx="6" fill="#E5D6D3" stroke="#8A6B69" stroke-opacity=".35"/>
+          <g id="wells" font-family="Instrument Sans, IBM Plex Sans KR, sans-serif" font-size="11" text-anchor="middle"></g>
+        </svg>
+      </div>
+      <figcaption><b>Fig. 02</b>연구에 사용해 온 촉매, 지지체, 탄소 소재</figcaption>
+    </figure>
+    <div class="about-text">
+      <p class="eyebrow"><span>About</span><span>소개</span></p>
+      <h2 id="aboutTitle">촉매 한 줌에서 하루 1톤 반응기까지, 하나로 이어지는 연구</h2>
+      <p class="lede">저등급 석탄과 바이오매스, 폐플라스틱처럼 쓰임이 적은 탄소 자원을 연료와 소재로 바꾸는 공정을 연구합니다. 금속 촉매를 탄소 지지체에 담지하는 실험에서 시작해, 인도네시아·호주 현장의 건조·반탄화 실증 설비와 VOCs·질소산화물 저감 장치로 연구 범위를 넓혀 왔습니다.</p>
+      <div class="stats" aria-label="주요 성과 요약">
+        <div class="stat"><strong>14</strong><span>SCI·학술 논문</span></div>
+        <div class="stat"><strong>23</strong><span>등록·출원 특허</span></div>
+        <div class="stat"><strong>13</strong><span>참여 연구 과제</span></div>
+        <div class="stat"><strong>2008</strong><span>연구 경력 시작</span></div>
+      </div>
+      <a class="btn" href="#career"><span class="roll">경력 보기</span><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- 3. 연구 분야 -->
+  <section class="band research tone-dark" id="research" data-tone="dark" aria-labelledby="researchTitle">
+    <div class="research-sticky">
+      <div class="research-intro">
+        <p class="eyebrow"><span>Research</span><span>연구 분야</span></p>
+        <h2 id="researchTitle">연구는 현장에서 풀리지 않는 문제에서 시작합니다.</h2>
+        <p class="lede">여섯 갈래의 연구 분야와 각각에 연결된 논문, 특허, 과제입니다. 스크롤하면 옆으로 넘어갑니다.</p>
+        <div class="progress" aria-hidden="true"><i id="hProg"></i></div>
+      </div>
+      <div class="track-view">
+        <div class="track" id="track">
+          <article class="card">
+            <div class="swatch" data-swatch="catalyst"></div>
+            <span class="tag">촉매 · 수소</span>
+            <h3>탄소 지지체 금속 촉매와 수증기 개질</h3>
+            <p>저등급탄·무회분탄에 니켈 등 금속을 이온 교환으로 나노 분산시켜 톨루엔, 에틸아세테이트, 메탄올 개질과 CO₂ 메탄화에 적용했습니다. 카본블랙·바이오차 지지체 촉매로 바이오매스 타르의 저온 수증기 개질도 연구했습니다. 최근에는 Y·Pr·Mg를 첨가한 Ni/Al₂O₃ 촉매로 VOCs 혼합물 수증기 개질의 코크 내성을 높였습니다.</p>
+            <span class="out">논문 8 · 특허 2 · 국제 발표 2</span>
+          </article>
+          <article class="card">
+            <div class="swatch" data-swatch="gasify"></div>
+            <span class="tag">가스화</span>
+            <h3>저등급 석탄의 수증기·CO₂ 가스화 반응성</h3>
+            <p>국내외 석탄 17종의 탄종별 CO₂ 가스화 특성, 인도네시아 저등급탄과 무회분탄 촤의 수증기 가스화, K₂CO₃ 촉매의 비활성화 거동을 비교했습니다.</p>
+            <span class="out">논문 4 · 과제 1</span>
+          </article>
+          <article class="card">
+            <div class="swatch" data-swatch="comb"></div>
+            <span class="tag">건조 · 반탄화 · 바이오차</span>
+            <h3>COMB / F-COMB 반응기 설계와 실증</h3>
+            <p>유연한 다중 방해판 반응기로 고함수 원료를 건조·반탄화합니다. 1톤/일 설비로 제철용 석탄 대체 바이오카본을 생산하고, 호주 산림부산물 5톤/일 실증을 수행했습니다.</p>
+            <span class="out">논문 2 · 특허 8 · 과제 4</span>
+          </article>
+          <article class="card">
+            <div class="swatch" data-swatch="adsorb"></div>
+            <span class="tag">흡착 · 재생</span>
+            <h3>VOCs 흡착제와 폐활성탄 재생</h3>
+            <p>케냐프 바이오차 흡착제, 다단 이동층 흡·탈착 장치, 증기를 이용한 연속식 폐활성탄 재생 공정으로 소규모 VOCs 배출시설 관리 기술을 만들었습니다.</p>
+            <span class="out">특허 6 · 과제 1</span>
+          </article>
+          <article class="card">
+            <div class="swatch" data-swatch="scr"></div>
+            <span class="tag">대기 청정</span>
+            <h3>중저온 배연탈질과 실내공기질 개선</h3>
+            <p>180 °C 이하에서 작동하는 SCR 촉매와 허니콤형 모노리스, 입자상·가스상 오염물질을 함께 제거하는 공조 연계 장치를 개발했습니다.</p>
+            <span class="out">특허 3 · 과제 2</span>
+          </article>
+          <article class="card">
+            <div class="swatch" data-swatch="nh3"></div>
+            <span class="tag">암모니아</span>
+            <h3>저온·저압 암모니아 합성 촉매와 축분 처리</h3>
+            <p>저온·저압에서 활성이 높은 탄소계 암모니아 합성 촉매를 개발하고, 미세먼지 전구물질인 암모니아를 줄이는 가축분뇨 처리 기술을 실증했습니다.</p>
+            <span class="out">특허 4 · 과제 2</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 경력 -->
+  <section class="band career tone-light" id="career" data-tone="light" aria-labelledby="careerTitle">
+    <div class="career-text">
+      <p class="eyebrow"><span>Career</span><span>경력과 학력</span></p>
+      <h2 id="careerTitle">분석실에서 발전소, 연구원까지. 2008년부터 에너지·환경 연구 현장에 있었습니다.</h2>
+      <div>
+        <span class="sub-h">Experience</span>
+        <div class="timeline">
+          <div class="row"><time>2018.10 — 현재</time><div><strong>한국에너지기술연구원 대기청정연구실</strong><span>선임기술원</span></div></div>
+          <div class="row"><time>2012.03 — 2018.10</time><div><strong>한국에너지기술연구원 청정연료연구실</strong><span>위촉연구원 (2012.03–2014.02 학생연구원 병행)</span></div></div>
+          <div class="row"><time>2009.07 — 2010.10</time><div><strong>한국전력연구원 수화력발전연구원</strong><span>위촉연구원</span></div></div>
+          <div class="row"><time>2008.03 — 2009.03</time><div><strong>중앙생명과학원㈜ 대덕연구원</strong><span>PCBs 분석 연구원</span></div></div>
+        </div>
+      </div>
+      <div>
+        <span class="sub-h">Education</span>
+        <div class="timeline">
+          <div class="row"><time>2012.03 — 2014.02</time><div><strong>충남대학교 녹색에너지기술전문대학원 석사</strong><span>신에너지공정전공 · 학점 4.45 · 학위논문 「니켈 촉매가 담지된 석탄을 이용한 톨루엔 수증기 개질」 (지도교수 이영우, 이시훈)</span></div></div>
+          <div class="row"><time>2004.03 — 2007.08</time><div><strong>한밭대학교 환경공학전공 학사</strong><span>학점 4.23</span></div></div>
+        </div>
+      </div>
+    </div>
+    <figure class="portrait">
+      <div class="frame">
+        <!-- 사진을 쓰려면 assets/portrait.jpg를 넣고 아래 주석을 해제하세요 -->
+        <!-- <img src="assets/portrait.jpg" alt="김수현 프로필 사진"> -->
+        <svg class="mono" viewBox="0 0 200 200" aria-hidden="true"><use href="#mono"/></svg>
+      </div>
+      <figcaption>김수현 · Soohyun Kim, M.S. · 대전 유성구</figcaption>
+    </figure>
+  </section>
+
+  <!-- 5. 논문과 발표 -->
+  <section class="band pubs tone-dark" id="publications" data-tone="dark" aria-labelledby="pubTitle">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><span>Publications</span><span>논문과 발표</span></p>
+        <h2 id="pubTitle">석탄 지지체 촉매에서 바이오카본 생산까지, 14편의 논문</h2>
+      </div>
+      <div class="filters" role="group" aria-label="논문 필터">
+        <button class="chip" id="fAll" aria-pressed="true" data-filter="all">전체 14</button>
+        <button class="chip" id="fFirst" aria-pressed="false" data-filter="first">제1저자 7</button>
+      </div>
+    </div>
+    <ol class="pub-list" id="pubList">
+      <li class="pub" data-first="1"><span class="yr">2026</span><div><h3><a href="https://doi.org/10.1016/j.jece.2026.121269" target="_blank" rel="noopener">Enhanced anti-coking performance of Y, Pr, and Mg-promoted Ni/Al₂O₃ catalysts for steam reforming of VOCs mixtures<span class="ext" aria-hidden="true">DOI ↗</span></a><span class="first-mark">Co-1st</span></h3><p class="au"><b>Soohyun Kim</b>¹, Zulqarnain¹, Dong Hyuk Chun, Jiho Yoo, Sangdo Kim, Hyuk Im, Hokyung Choi, Hyejeong Kim, Kyubock Lee · ¹공동 제1저자</p></div><p class="jr">Journal of Environmental Chemical Engineering<small>Vol. 14, 121269 · 2026.01.15</small></p></li>
+      <li class="pub"><span class="yr">2025</span><div><h3><a href="https://doi.org/10.1007/s42773-025-00437-3" target="_blank" rel="noopener">Low-temperature steam reforming of toluene as a biomass tar model compound over biochar-supported catalysts<span class="ext" aria-hidden="true">DOI ↗</span></a></h3><p class="au">Zulqarnain, <b>S. Kim</b>, D. Chun, J. Yoo, S.J. Yoon, S.-J. Kim, S.-J. Park</p></div><p class="jr">Biochar<small>2025</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2025</span><div><h3><a href="https://doi.org/10.3390/en18020327" target="_blank" rel="noopener">Steam Reforming of High-Concentration Toluene as a Model Biomass Tar Using a Nickel Catalyst Supported on Carbon Black<span class="ext" aria-hidden="true">DOI ↗</span></a><span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Sangjun Yoon, Zulqarnain, Jiho Yoo, Hyuk Im, Sangdo Kim, Donghyuk Chun, Hokyung Choi, Jeonghwan Lim</p></div><p class="jr">Energies<small>Vol. 18(2), 327 · 2025.01.13</small></p></li>
+      <li class="pub"><span class="yr">2024</span><div><h3>Biochar production using a Flexible Counter Flow Multi-Baffle (F-COMB) reactor</h3><p class="au">Irma Thya Rani, Bangun Adi Wijaya, Sihyun Lee, Sangdo Kim, Hokyung Choi, Donghyuk Chun, Hyuk Im, <b>Soohyun Kim</b>, Jeonghwan Lim, Jiho Yoo, Byung Bae Park</p></div><p class="jr">Journal of Cleaner Production<small>2024.06.10</small></p></li>
+      <li class="pub"><span class="yr">2023</span><div><h3>Oil palm biomass in Indonesia: Thermochemical upgrading and its utilization</h3><p class="au">Rakhmawati Nabila, Wahyu Hidayat, Agus Haryanto, Udin Hasanudin, Dewi Agustina Iryani, Sihyun Lee, Sangdo Kim, <b>Soohyun Kim</b>, Hokyung Choi, Donghyuk Chun, Hyuk Im, Jeonghwan Lim, Kwanyoung Kim, Dukwoo Jun, Jooyeon Moon, Jiho Yoo</p></div><p class="jr">Renewable and Sustainable Energy Reviews<small>2023.01.31</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2021</span><div><h3>Low-Rank Coal Supported Ni Catalysts for CO₂ Methanation<span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Yunxia Yang, Renata Lippi, Hokyung Choi, Sangdo Kim, Donghyuk Chun, Hyuk Im, Sihyun Lee, Jiho Yoo</p></div><p class="jr">Energies<small>2021.04.07</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2020</span><div><h3>Dispersion behavior of various single metals on carbonaceous coal supports and their reactivity in methanol steam reforming<span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Hermawan Prajitno, Jiho Yoo, Sangdo Kim, Donghyuk Chun, Jeonghwan Lim, Hokyung Choi, Sihyun Lee, Hyuk Im</p></div><p class="jr">Journal of Industrial and Engineering Chemistry<small>2020.11.08</small></p></li>
+      <li class="pub"><span class="yr">2020</span><div><h3>Steam gasification of chars of ash-free coals extracted using 1-methylnaphthalene and N-methyl-2-pyrrolidone</h3><p class="au">Hermawan Prajitno, Youngjin Kong, <b>Soohyun Kim</b>, Hyuk Im, Jiho Yoo, Hokyung Choi, Jeonghwan Lim, Sangdo Kim, Donghyuk Chun, Sihyun Lee</p></div><p class="jr">Fuel<small>2020.07.06</small></p></li>
+      <li class="pub"><span class="yr">2018</span><div><h3>Nickel Catalysts Supported on Ash-Free Coal for Steam Reforming of Toluene</h3><p class="au">Lia Priscilla, <b>Soohyun Kim</b>, Jiho Yoo, Hokyung Choi, Youngsoon Rhim, Jeonghwan Lim, Sangdo Kim, Donghyun Chun, Sihyun Lee</p></div><p class="jr">Transactions of the Korean Hydrogen and New Energy Society<small>2018.12.30</small></p></li>
+      <li class="pub"><span class="yr">2018</span><div><h3>Nickel-supported on low-rank coal for steam reforming of ethyl acetate</h3><p class="au">Nikola Ruswurmova, <b>Soohyun Kim</b>, Jiho Yoo, Donghyuk Chun, Youngjoon Rhim, Jeonghwan Lim, Sangdo Kim, Hokyung Choi, Sihyun Lee</p></div><p class="jr">International Journal of Hydrogen Energy<small>2018.07.25</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2016</span><div><h3>Comparative Evaluation of Steam Gasification Reactivity of Indonesian Low Rank Coals<span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Paul Victor, Jiho Yoo, Sihyun Lee, Youngjoon Rhim, Jeonghwan Lim, Sangdo Kim, Donghyuk Chun, Hokyung Choi</p></div><p class="jr">Journal of Hydrogen and New Energy<small>2016.12.30</small></p></li>
+      <li class="pub"><span class="yr">2016</span><div><h3>Deactivation Behavior of K₂CO₃ Catalyst in the Steam Gasification of Kideco Coal</h3><p class="au">Paul Victor, <b>Soohyun Kim</b>, Jiho Yoo, Sihyun Lee, Youngjoon Rhim, Jeonghwan Lim, Sangdo Kim, Donghyuk Chun, Hokyung Choi, Youngwoo Rhee</p></div><p class="jr">Journal of Hydrogen and New Energy<small>2016.10.30</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2015</span><div><h3>Catalytic reforming of toluene using a nickel ion-exchanged coal catalyst<span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Donghyuk Chun, Youngjoon Rhim, Jeonghwan Lim, Sangdo Kim, Hokyung Choi, Sihyun Lee, Jiho Yoo</p></div><p class="jr">International Journal of Hydrogen Energy<small>2015.07.17</small></p></li>
+      <li class="pub" data-first="1"><span class="yr">2013</span><div><h3>Characterization of CO₂ Gasification of 17 Coals With Regard to Coal Rank<span class="first-mark">1st</span></h3><p class="au"><b>Soohyun Kim</b>, Jiho Yoo, Donghyuk Chun, Sihyun Lee, Youngwoo Rhee</p></div><p class="jr">The Korean Society of Clean Technology<small>2013.09.30</small></p></li>
+    </ol>
+
+    <div class="talks" aria-label="학술 발표">
+      <article class="talk"><span class="kind">Oral · EUBCE 2024</span><h3>Production of biocarbon as coking coal replacement using 1 ton/day F-COMB reactor</h3><p>European Biomass Conference &amp; Exhibition, 2024</p></article>
+      <article class="talk"><span class="kind">Poster · 2019</span><h3>The utilization of nanocellulose as catalyst support for CO₂ methanation</h3><p>International Conference on Materials Science and Engineering 2019</p></article>
+      <article class="talk"><span class="kind">Poster · 2018</span><h3>Nano-dispersion of metal catalysts on low rank coal and their use for methanol steam reforming</h3><p>The 2nd Australia–Japan Symposium on Carbon Resource Utilisation</p></article>
+    </div>
+  </section>
+
+  <!-- 6. 특허 -->
+  <section class="band patents tone-light" id="patents" data-tone="light" aria-labelledby="patTitle">
+    <div class="statement">
+      <p class="fill-text" id="fillText">좋은 공정 연구는 실험실에서 얻은 숫자가 현장의 설비에서도 같은 답을 낼 때 완성된다고 생각합니다. 시료 몇 그램에서 하루 1톤을 처리하는 반응기까지, 그 사이의 간격을 줄이는 일을 해 왔습니다.</p>
+    </div>
+    <svg class="big-mono" viewBox="0 0 200 200" aria-hidden="true"><use href="#mono"/></svg>
+    <div class="pat-wrap">
+      <div class="pat-intro">
+        <p class="eyebrow"><span>Patents</span><span>특허</span></p>
+        <h2 id="patTitle">장치와 공정으로 남긴 23건의 특허</h2>
+        <p class="lede muted">건조·반탄화 반응기, 폐활성탄 재생, 암모니아 합성 촉매, 배연탈질 촉매까지 연구 결과를 설비와 공정으로 옮긴 기록입니다.</p>
+      </div>
+      <div class="pat-list">
+        <div class="pat-year"><h3>2023<small>6건</small></h3><ul>
+          <li><span>증기를 활용한 폐활성탄 재생장치 및 그 재생방법</span><time>12.22</time></li>
+          <li><span>일체형 실내공기질 개선 장치</span><time>11.20</time></li>
+          <li><span>활성이 향상된 암모니아 합성용 촉매의 제조 방법 및 암모니아 합성용 촉매</span><time>11.15</time></li>
+          <li><span>케냐프 바이오차를 이용한 휘발성 유기화합물 흡착제의 제조 방법 및 이에 의해 제조된 케냐프 바이오차</span><time>11.15</time></li>
+          <li><span>저압, 저온 조건에서 높은 활성을 보이는 암모니아 합성용 촉매 및 이를 이용한 암모니아의 합성 방법</span><time>05.04</time></li>
+          <li><span>회전부를 갖는 방해판을 포함하는 건조 및 반탄화 장치 및 방법</span><time>01.04</time></li>
+        </ul></div>
+        <div class="pat-year"><h3>2022<small>4건</small></h3><ul>
+          <li><span>합성가스 재질을 위한 연속식 폐활성탄 재생 장치 및 방법</span><time>12.26</time></li>
+          <li><span>펀칭, 레이크 방해판이 구비된 건조, 열분해, 반탄화 장치</span><time>08.11</time></li>
+          <li><span>유연한 다중 방해판이 구비된 건조 장치</span><time>04.26</time></li>
+          <li><span>축분 처리 시스템 및 방법</span><time>02.07</time></li>
+        </ul></div>
+        <div class="pat-year"><h3>2021<small>4건</small></h3><ul>
+          <li><span>저압, 저온 조건에서 높은 활성을 보이는 암모니아 합성용 탄소계 촉매 및 이를 이용한 암모니아의 합성 방법</span><time>12.30</time></li>
+          <li><span>연속식 수열탄화 장치 및 이를 이용한 하이드로차 제조 방법</span><time>12.24</time></li>
+          <li><span>피 건조물 건조장치</span><time>10.13</time></li>
+          <li><span>탄소계 부산물을 이용한 타르 개질 공정 및 촉매</span><time>02.18</time></li>
+        </ul></div>
+        <div class="pat-year"><h3>2020<small>4건</small></h3><ul>
+          <li><span>탄소 지지체를 사용한 CO₂ 메탄화 반응용 촉매 및 이의 제조방법</span><time>12.24</time></li>
+          <li><span>입자의 건조 및 열분해 장치 및 이를 이용한 입자의 건조 및 열분해 방법</span><time>12.22</time></li>
+          <li><span>저온 활성이 개선된 SCR 촉매, 이의 제조 방법, 및 배가스 정화용 촉매</span><time>12.22</time></li>
+          <li><span>폐활성탄 재생 시스템 및 폐활성탄 재생 방법</span><time>07.13</time></li>
+        </ul></div>
+        <div class="pat-year"><h3>2019<small>4건</small></h3><ul>
+          <li><span>이동 방해판을 구비한 건조 및 반탄화 장치</span><time>12.27</time></li>
+          <li><span>입자의 균일 건조 및 반탄화를 위한 건조 및 반탄화 반응기</span><time>12.24</time></li>
+          <li><span>허니콤형 모노리스 및 이의 제조방법</span><time>08.30</time></li>
+          <li><span>다단 이동층 흡착탈 장치 및 이를 이용한 휘발성유기화합물의 처리 방법</span><time>05.21</time></li>
+        </ul></div>
+        <div class="pat-year"><h3>2018<small>1건</small></h3><ul>
+          <li><span>활성탄의 제조방법</span><time>12.21</time></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 연구 과제 -->
+  <section class="band projects tone-dark" id="projects" data-tone="dark" aria-labelledby="projTitle">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><span>Projects</span><span>참여 연구 과제</span></p>
+        <h2 id="projTitle">국내외 기관과 함께 수행한 13개 연구 과제</h2>
+      </div>
+      <p class="muted" style="font-size:var(--fs-sm)" id="projCount">진행 중 2 · 종료 11</p>
+    </div>
+    <ol class="proj-list" id="projList">
+      <li class="proj" data-end="2025-12-31"><span class="pill off">종료</span><h3>폐플라스틱 열분해 잔사물로부터 고부가 탄소소재 제조기술 개발</h3><span class="ag">KIER 창의형과제</span><time>2024.01 — 2025.12</time></li>
+      <li class="proj" data-end="2025-12-31"><span class="pill off">종료</span><h3>철강용 석탄 대체 및 탄소 네거티브 PyCCS를 위한 바이오차 생산 실증</h3><span class="ag">KIER 시장적기진입과제</span><time>2023.10 — 2025.12</time></li>
+      <li class="proj" data-end="2025-12-31"><span class="pill off">종료</span><h3>철강분야 탄소중립을 위한 바이오매스와 폐플라스틱을 이용한 대체연료 활용 기술 개발</h3><span class="ag">산업기술평가관리원 탄소혁신스타즈</span><time>2023.04 — 2025.12</time></li>
+      <li class="proj" data-end="2029-02-28"><span class="pill on">진행 중</span><h3>분산형 저탄소 수소생산 연구센터</h3><span class="ag">한국연구재단 ERC</span><time>2022.06 — 2029.02</time></li>
+      <li class="proj" data-end="2025-04-30"><span class="pill off">종료</span><h3>생활주변 소규모 VOCs 배출시설 스마트 통합관리 실증 기술개발</h3><span class="ag">환경부</span><time>2022.04 — 2025.04</time></li>
+      <li class="proj" data-end="2026-12-31"><span class="pill on">진행 중</span><h3>해외 재생에너지의 경제적 도입을 위한 암모니아 에너지 캐리어 기술 개발</h3><span class="ag">KIER 한도외과제</span><time>2022.01 — 2026.12</time></li>
+      <li class="proj" data-end="2024-03-31"><span class="pill off">종료</span><h3>미세먼지 전구물질인 암모니아 저감을 위한 효율적 가축분뇨 처리 기술 실증</h3><span class="ag">한국연구재단 초미세먼지사업단</span><time>2022.01 — 2024.03</time></li>
+      <li class="proj" data-end="2023-12-31"><span class="pill off">종료</span><h3>입자상/가스상 오염물질 제거 및 공조 연계를 위한 RSPU 시스템 개발</h3><span class="ag">KIER 주요사업</span><time>2021.01 — 2023.12</time></li>
+      <li class="proj" data-end="2023-12-31"><span class="pill off">종료</span><h3>유동층전극 SOFC가 적용된 분산형 바이오매스 가스화 CHP 시스템 핵심기술 개발 및 실증</h3><span class="ag">에너지기술평가원 한중국제공동</span><time>2020.10 — 2023.12</time></li>
+      <li class="proj" data-end="2023-12-31"><span class="pill off">종료</span><h3>산업부문 미세먼지 저감을 위한 180 °C 이하 중저온용 고효율·내피독성 배연탈질 기술 개발</h3><span class="ag">KIER 주요사업</span><time>2020.01 — 2023.12</time></li>
+      <li class="proj" data-end="2022-12-31"><span class="pill off">종료</span><h3>호주 미활용 산림부산물 건조를 위한 5톤/일 F-COMB 실증 연구</h3><span class="ag">KIER 주요사업</span><time>2022.01 — 2022.12</time></li>
+      <li class="proj" data-end="2019-12-31"><span class="pill off">종료</span><h3>다공성 탄소 지지체 촉매 개발을 위한 호주 CSIRO와의 공동연구</h3><span class="ag">KIER 주요사업</span><time>2018.01 — 2019.12</time></li>
+      <li class="proj" data-end="2019-12-31"><span class="pill off">종료</span><h3>인도네시아 미활용자원의 청정연료 생산 상용화 패키지 개발</h3><span class="ag">KIER 주요사업</span><time>2017.01 — 2019.12</time></li>
+    </ol>
+  </section>
+
+  <!-- 8. 연락 -->
+  <section class="band contact tone-light" id="contact" data-tone="light" aria-labelledby="contactTitle">
+    <div style="display:grid;gap:24px">
+      <p class="eyebrow"><span>Contact</span><span>연락처</span></p>
+      <h2 id="contactTitle">공동 연구와 기술 문의를 기다립니다.</h2>
+    </div>
+    <dl class="contact-info">
+      <div class="ci"><dt>Email</dt><dd id="emailText">soohyun@kier.re.kr</dd><button class="copy-btn" data-copy="soohyun@kier.re.kr"><span class="roll">복사</span></button></div>
+      <div class="ci"><dt>Tel.</dt><dd>042-860-3719</dd><button class="copy-btn" data-copy="042-860-3719"><span class="roll">복사</span></button></div>
+      <div class="ci"><dt>Office</dt><dd>대전 유성구 가정로 152, 한국에너지기술연구원 대기청정연구실</dd><span></span></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="band footer tone-dark" data-tone="dark">
+  <svg class="mono" viewBox="0 0 200 200" aria-hidden="true"><use href="#mono"/></svg>
+  <span class="logo">Soohyun K<i>/</i>m</span>
+  <p class="slogan">Carbon resources<br>from bench to plant</p>
+  <address>대전 유성구 가정로 152 · 한국에너지기술연구원<br>soohyun@kier.re.kr</address>
+  <nav class="foot-nav" aria-label="하단 메뉴">
+    <a href="#research" data-reveal style="--d:0s"><span class="roll">Research</span></a>
+    <a href="#career" data-reveal style="--d:.12s"><span class="roll">Career</span></a>
+    <a href="#publications" data-reveal style="--d:.24s"><span class="roll">Publications</span></a>
+    <a href="#contact" data-reveal style="--d:.36s"><span class="roll">Contact</span></a>
+  </nav>
+  <div class="foot-meta">
+    <span>© 2026 김수현</span>
+    <a href="#top"><span class="roll">↑ 맨 위로</span></a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  /* 1. 호버 굴림 링크: 같은 글자를 두 줄로 쌓는다 */
+  $$('.roll').forEach(el => {
+    const t = el.textContent;
+    el.textContent = '';
+    const a = document.createElement('span'); a.textContent = t;
+    const b = document.createElement('span'); b.textContent = t; b.setAttribute('aria-hidden', 'true');
+    el.append(a, b);
+  });
+
+  /* 2. 전체 화면 메뉴 */
+  const menu = $('#menu'), openBtn = $('#menuOpen'), closeBtn = $('#menuClose');
+  const setMenu = open => {
+    menu.classList.toggle('open', open);
+    openBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    (open ? closeBtn : openBtn).focus();
+  };
+  openBtn.addEventListener('click', () => setMenu(true));
+  closeBtn.addEventListener('click', () => setMenu(false));
+  $$('#menu nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+
+  /* 3. 헤더 색: 아래에 있는 섹션의 톤을 따른다 */
+  const header = $('#siteHeader');
+  const toned = $$('[data-tone]');
+  function updateHeader() {
+    const y = header.offsetHeight / 2;
+    let tone = 'dark';
+    for (const s of toned) { const r = s.getBoundingClientRect(); if (r.top <= y && r.bottom > y) { tone = s.dataset.tone; break; } }
+    header.classList.toggle('on-light', tone === 'light');
+    header.classList.toggle('on-dark', tone !== 'light');
+    header.classList.toggle('scrolled', scrollY > 40);
+  }
+
+  /* 4. 시료 트레이 그림 */
+  const wells = [
+    ['Ni', 'g1'], ['K₂CO₃', 'g2'], ['저등급탄', 'g3'], ['무회분탄', 'g1'],
+    ['바이오차', 'g3'], ['케냐프', 'g4'], ['나노셀룰로오스', 'g2'], ['활성탄', 'g1'],
+    ['하이드로차', 'g4'], ['허니콤', 'g2'], ['폐활성탄', 'g3'], ['팜 바이오매스', 'g4']
+  ];
+  const g = $('#wells'); const NS = 'http://www.w3.org/2000/svg';
+  wells.forEach(([label, grad], i) => {
+    const cx = 72 + (i % 4) * 112, cy = 70 + Math.floor(i / 4) * 110;
+    const ring = document.createElementNS(NS, 'circle');
+    Object.entries({ cx, cy, r: 40, fill: '#F4EFE9', stroke: '#8A6B69', 'stroke-opacity': .4 }).forEach(([k, v]) => ring.setAttribute(k, v));
+    const fillC = document.createElementNS(NS, 'circle');
+    Object.entries({ cx, cy, r: 33, fill: `url(#${grad})` }).forEach(([k, v]) => fillC.setAttribute(k, v));
+    const tex = document.createElementNS(NS, 'circle');
+    Object.entries({ cx, cy, r: 33, fill: 'url(#dots)' }).forEach(([k, v]) => tex.setAttribute(k, v));
+    const txt = document.createElementNS(NS, 'text');
+    Object.entries({ x: cx, y: cy + 56, fill: '#340100' }).forEach(([k, v]) => txt.setAttribute(k, v));
+    txt.textContent = label;
+    g.append(ring, fillC, tex, txt);
+  });
+
+  /* 5. 연구 분야 카드 도판: 분야마다 다른 소재 질감 */
+  const swatches = {
+    catalyst: (w, h) => { let s = ''; for (let i = 0; i < 90; i++) { const x = rnd(i * 3) * w, y = rnd(i * 7) * h, r = 2 + rnd(i * 11) * 7; s += `<circle cx="${x}" cy="${y}" r="${r}" fill="#E7C1C0" opacity="${.25 + rnd(i) * .6}"/>`; } return bg('#4a1a17') + s; },
+    gasify: (w, h) => { let s = ''; for (let i = 0; i < 14; i++) { const y = 20 + i * (h / 14); s += `<path d="M0 ${y} C ${w * .3} ${y - 18}, ${w * .6} ${y + 18}, ${w} ${y - 6}" stroke="#D9BFBE" stroke-width="1" fill="none" opacity="${.2 + i / 22}"/>`; } return bg('#2a0100') + s; },
+    comb: (w, h) => { let s = ''; for (let i = 0; i < 7; i++) { const y = 30 + i * (h - 60) / 6, L = i % 2 === 0; s += `<line x1="${L ? 20 : w - 20}" y1="${y}" x2="${L ? w * .7 : w * .3}" y2="${y + 22}" stroke="#E7C1C0" stroke-width="3"/>`; } for (let i = 0; i < 60; i++) s += `<circle cx="${rnd(i * 5) * w}" cy="${rnd(i * 9) * h}" r="1.6" fill="#F4EFE9" opacity=".6"/>`; return bg('#5c2b28') + s; },
+    adsorb: (w, h) => { let s = ''; for (let x = 12; x < w; x += 22) for (let y = 12; y < h; y += 22) { const r = 3 + rnd(x * y) * 6; s += `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#D9BFBE" opacity=".5"/>`; } return bg('#3d0d0a') + s; },
+    scr: (w, h) => { let s = ''; const k = 18; for (let x = 0; x < w; x += k) for (let y = 0; y < h; y += k) s += `<rect x="${x + 2}" y="${y + 2}" width="${k - 4}" height="${k - 4}" fill="#8A6B69" opacity="${.25 + rnd(x + y * 3) * .55}"/>`; return bg('#340100') + s; },
+    nh3: (w, h) => { let s = ''; const pts = []; for (let i = 0; i < 26; i++) pts.push([rnd(i * 13) * w, rnd(i * 17) * h]); pts.forEach((p, i) => { const q = pts[(i * 7 + 3) % pts.length]; s += `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="#D9BFBE" opacity=".25"/>`; }); pts.forEach(p => s += `<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#E7C1C0"/><circle cx="${p[0] + 7}" cy="${p[1] - 5}" r="2.5" fill="#F4EFE9"/>`); return bg('#4d1f1c') + s; }
+  };
+  function rnd(n) { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); }
+  function bg(c) { return `<rect width="100%" height="100%" fill="${c}"/>`; }
+  $$('[data-swatch]').forEach(el => {
+    const w = 360, h = 450, fn = swatches[el.dataset.swatch];
+    el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${fn(w, h)}</svg>`;
+  });
+
+  /* 6. 연구 분야: 스크롤 고정 + 가로 이동 */
+  const research = $('#research'), track = $('#track'), view = $('.track-view'), prog = $('#hProg');
+  let dist = 0;
+  function layoutH() {
+    const narrow = matchMedia('(max-width: 900px)').matches;
+    if (narrow || reduced) { research.classList.add('static'); research.style.height = ''; track.style.transform = ''; dist = 0; return; }
+    research.classList.remove('static');
+    dist = Math.max(0, track.scrollWidth - view.clientWidth);
+    research.style.height = (innerHeight + dist) + 'px';
+  }
+  function scrollH() {
+    if (!dist) return;
+    const r = research.getBoundingClientRect();
+    const p = clamp(-r.top / (research.offsetHeight - innerHeight || 1));
+    track.style.transform = `translate3d(${-p * dist}px,0,0)`;
+    prog.style.width = (p * 100) + '%';
+  }
+
+  /* 7. 단어 단위 글자 채움 */
+  const fill = $('#fillText');
+  let words = [];
+  if (!reduced) {
+    const parts = fill.textContent.trim().split(/\s+/);
+    fill.textContent = '';
+    parts.forEach((w, i) => { const s = document.createElement('span'); s.className = 'w'; s.textContent = w; fill.append(s); if (i < parts.length - 1) fill.append(' '); });
+    words = $$('.w', fill);
+  }
+  function scrollFill() {
+    if (!words.length) return;
+    const r = fill.getBoundingClientRect();
+    const p = clamp((innerHeight * .85 - r.top) / (r.height + innerHeight * .35));
+    const n = Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle('dim', i >= n));
+  }
+
+  /* 8. 화면 진입 시 순차 등장: 처음 화면 밖에 있는 요소만 */
+  if (!reduced && 'IntersectionObserver' in window) {
+    const targets = $$('[data-reveal], .card, .talk');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('shown'); e.target.classList.remove('pre'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(t => { if (t.getBoundingClientRect().top > innerHeight) { t.classList.add('pre'); io.observe(t); } });
+  }
+
+  /* 9. 논문 필터 */
+  const chips = $$('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+    const firstOnly = c.dataset.filter === 'first';
+    $$('#pubList .pub').forEach(li => { li.hidden = firstOnly && !li.dataset.first; });
+    requestAnimationFrame(() => { layoutH(); onScroll(); });
+  }));
+
+  /* 10. 과제 진행 상태: 오늘 날짜 기준 */
+  (function () {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let on = 0, off = 0;
+    $$('#projList .proj').forEach(li => {
+      const end = new Date(li.dataset.end + 'T23:59:59');
+      const active = end >= today;
+      const pill = $('.pill', li);
+      pill.className = 'pill ' + (active ? 'on' : 'off');
+      pill.textContent = active ? '진행 중' : '종료';
+      active ? on++ : off++;
+    });
+    $('#projCount').textContent = `진행 중 ${on} · 종료 ${off}`;
+  })();
+
+  /* 11. 복사 버튼 */
+  $$('.copy-btn').forEach(btn => btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    const done = () => { const first = btn.querySelector('.roll span'); const prev = first.textContent; btn.classList.add('done'); btn.querySelectorAll('.roll span').forEach(s => s.textContent = '복사됨'); setTimeout(() => { btn.classList.remove('done'); btn.querySelectorAll('.roll span').forEach(s => s.textContent = prev); }, 1600); };
+    try { await navigator.clipboard.writeText(text); done(); }
+    catch (_) { const dd = btn.previousElementSibling; const sel = getSelection(); const rg = document.createRange(); rg.selectNodeContents(dd); sel.removeAllRanges(); sel.addRange(rg); }
+  }));
+
+  /* 12. 히어로 캔버스: COMB 반응기 입자 흐름 */
+  const cv = $('#combCanvas'), ctx = cv.getContext('2d');
+  let W = 0, H = 0, path = [], segLen = [], total = 0, parts = [], gas = [], baffles = [];
+  function buildPath() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const colW = Math.min(W * .62, 300), x0 = (W - colW) / 2, x1 = x0 + colW;
+    const top = 26, bottom = H - 20, n = 7, gap = (bottom - top - 40) / n, drop = gap * .32, reach = .7;
+    baffles = []; path = [[x0 + colW * .5, top - 10]];
+    for (let i = 0; i < n; i++) {
+      const y = top + 30 + i * gap, left = i % 2 === 0;
+      const wallX = left ? x0 : x1, freeX = left ? x0 + colW * reach : x1 - colW * reach;
+      baffles.push([wallX, y, freeX, y + drop]);
+      const landX = i === 0 ? x0 + colW * .45 : path[path.length - 1][0];
+      const t = (landX - wallX) / (freeX - wallX);
+      path.push([landX, y + drop * t - 3]);
+      path.push([freeX, y + drop - 3]);
+    }
+    path.push([path[path.length - 1][0], bottom]);
+    segLen = []; total = 0;
+    for (let i = 1; i < path.length; i++) { const d = Math.hypot(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1]); segLen.push(d); total += d; }
+    parts = Array.from({ length: 150 }, (_, i) => ({ s: rnd(i + 1) * total, v: .45 + rnd(i + 50) * .5, o: (rnd(i + 90) - .5) * 7, r: .8 + rnd(i + 120) * 1.8, c: rnd(i + 200) > .35 ? '231,193,192' : '244,239,233' }));
+    gas = Array.from({ length: 50 }, (_, i) => ({ x: x0 + rnd(i + 300) * colW, y: rnd(i + 400) * H, v: .3 + rnd(i + 500) * .6, ph: rnd(i + 600) * 6 }));
+    cv._col = [x0, x1, top, bottom];
+  }
+  function at(s) {
+    let i = 0; while (i < segLen.length && s > segLen[i]) { s -= segLen[i]; i++; }
+    if (i >= segLen.length) return [path[path.length - 1], 0];
+    const a = path[i], b = path[i + 1], t = s / segLen[i];
+    return [[a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], i];
+  }
+  function draw(time) {
+    ctx.clearRect(0, 0, W, H);
+    const [x0, x1, top, bottom] = cv._col;
+    ctx.strokeStyle = 'rgba(231,193,192,.35)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x0, bottom); ctx.moveTo(x1, top); ctx.lineTo(x1, bottom); ctx.stroke();
+    ctx.strokeStyle = 'rgba(231,193,192,.75)'; ctx.lineWidth = 2;
+    baffles.forEach(b => { ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.lineTo(b[2], b[3]); ctx.stroke(); });
+    gas.forEach(g => {
+      if (!reduced) { g.y -= g.v; if (g.y < top) g.y = bottom; }
+      const x = g.x + Math.sin(g.y / 30 + g.ph) * 6;
+      ctx.fillStyle = 'rgba(217,191,190,.22)'; ctx.beginPath(); ctx.arc(x, g.y, 1.2, 0, 7); ctx.fill();
+    });
+    parts.forEach(p => {
+      const [pt, seg] = at(p.s);
+      const falling = seg % 2 === 0;
+      if (!reduced) { p.s += p.v * (falling ? 2.4 : .9); if (p.s > total) p.s = 0; }
+      ctx.fillStyle = `rgba(${p.c},.85)`;
+      ctx.beginPath(); ctx.arc(pt[0] + (falling ? p.o : p.o * .25), pt[1] - (falling ? 0 : Math.abs(p.o) * .4), p.r, 0, 7); ctx.fill();
+    });
+    ctx.fillStyle = 'rgba(217,191,190,.8)'; ctx.font = '11px "Instrument Sans", sans-serif';
+    ctx.textAlign = 'right'; ctx.fillText('원료 투입 ↓', x0 - 10, top + 8);
+    ctx.textAlign = 'left'; ctx.fillText('↑ 열풍', x1 + 10, bottom - 6);
+    if (!reduced && running) requestAnimationFrame(draw);
+  }
+  let running = true;
+  new IntersectionObserver(es => { const vis = es[0].isIntersecting; if (vis && !running) { running = true; requestAnimationFrame(draw); } running = vis; }).observe(cv);
+
+  /* 공통 이벤트 */
+  function onScroll() { updateHeader(); scrollH(); scrollFill(); }
+  function onResize() { buildPath(); layoutH(); onScroll(); if (reduced) draw(); }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onResize);
+  onResize();
+  requestAnimationFrame(draw);
+  if (document.fonts) document.fonts.ready.then(onResize);
+})();
+</script>
+
+</body>
+</html>
