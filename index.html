@@ -803,7 +803,7 @@ figcaption b { font-weight: 500; letter-spacing: .12em; text-transform: uppercas
 
   /* 12. 히어로 캔버스: COMB 반응기 입자 흐름 */
   const cv = $('#combCanvas'), ctx = cv.getContext('2d');
-  let W = 0, H = 0, path = [], segLen = [], total = 0, parts = [], gas = [], baffles = [];
+  let W = 0, H = 0, path = [], segLen = [], total = 0, parts = [], gas = [], baffles = [], gasPath = [], gasLen = [], gasTotal = 0;
   function buildPath() {
     const dpr = Math.min(devicePixelRatio || 1, 2);
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
@@ -824,26 +824,41 @@ figcaption b { font-weight: 500; letter-spacing: .12em; text-transform: uppercas
     segLen = []; total = 0;
     for (let i = 1; i < path.length; i++) { const d = Math.hypot(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1]); segLen.push(d); total += d; }
     parts = Array.from({ length: 150 }, (_, i) => ({ s: rnd(i + 1) * total, v: .45 + rnd(i + 50) * .5, o: (rnd(i + 90) - .5) * 7, r: .8 + rnd(i + 120) * 1.8, c: rnd(i + 200) > .35 ? '231,193,192' : '244,239,233' }));
-    gas = Array.from({ length: 50 }, (_, i) => ({ x: x0 + rnd(i + 300) * colW, y: rnd(i + 400) * H, v: .3 + rnd(i + 500) * .6, ph: rnd(i + 600) * 6 }));
+    // 열풍 경로: 바닥에서 들어와 방해판 끝의 틈을 지그재그로 통과하며 위로 (시료와 반대 방향)
+    const gx = i => i % 2 === 0 ? (x0 + colW * reach + x1) / 2 : (x0 + x1 - colW * reach) / 2;
+    gasPath = [[gx(n - 1), bottom + 6]];
+    for (let i = n - 1; i >= 0; i--) { const yb = baffles[i][3]; gasPath.push([gx(i), yb + 10]); gasPath.push([gx(i), yb - gap * .35]); }
+    gasPath.push([gasPath[gasPath.length - 1][0], top - 14]);
+    gasLen = []; gasTotal = 0;
+    for (let i = 1; i < gasPath.length; i++) { const d = Math.hypot(gasPath[i][0] - gasPath[i - 1][0], gasPath[i][1] - gasPath[i - 1][1]); gasLen.push(d); gasTotal += d; }
+    gas = Array.from({ length: 90 }, (_, i) => ({ s: rnd(i + 300) * gasTotal, v: 1.1 + rnd(i + 500) * .9, o: (rnd(i + 400) - .5) * colW * .2, a: .35 + rnd(i + 600) * .45 }));
     cv._col = [x0, x1, top, bottom];
   }
-  function at(s) {
-    let i = 0; while (i < segLen.length && s > segLen[i]) { s -= segLen[i]; i++; }
-    if (i >= segLen.length) return [path[path.length - 1], 0];
-    const a = path[i], b = path[i + 1], t = s / segLen[i];
+  function onPath(P, L, s) {
+    let i = 0; while (i < L.length && s > L[i]) { s -= L[i]; i++; }
+    if (i >= L.length) return [P[P.length - 1], 0];
+    const a = P[i], b = P[i + 1], t = s / L[i];
     return [[a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], i];
   }
-  function draw(time) {
+  const at = s => onPath(path, segLen, s);
+  function draw(time = 0) {
     ctx.clearRect(0, 0, W, H);
     const [x0, x1, top, bottom] = cv._col;
     ctx.strokeStyle = 'rgba(231,193,192,.35)'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x0, bottom); ctx.moveTo(x1, top); ctx.lineTo(x1, bottom); ctx.stroke();
     ctx.strokeStyle = 'rgba(231,193,192,.75)'; ctx.lineWidth = 2;
     baffles.forEach(b => { ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.lineTo(b[2], b[3]); ctx.stroke(); });
+    // 열풍 경로 안내선
+    ctx.save(); ctx.setLineDash([2, 6]); ctx.strokeStyle = 'rgba(240,168,128,.22)'; ctx.lineWidth = 1;
+    ctx.beginPath(); gasPath.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore();
+    // 열풍 줄기: 짧은 꼬리를 단 선으로 위로 흐름
+    ctx.lineCap = 'round'; ctx.lineWidth = 1.6;
     gas.forEach(g => {
-      if (!reduced) { g.y -= g.v; if (g.y < top) g.y = bottom; }
-      const x = g.x + Math.sin(g.y / 30 + g.ph) * 6;
-      ctx.fillStyle = 'rgba(217,191,190,.22)'; ctx.beginPath(); ctx.arc(x, g.y, 1.2, 0, 7); ctx.fill();
+      if (!reduced) { g.s += g.v; if (g.s > gasTotal) g.s = 0; }
+      const [h] = onPath(gasPath, gasLen, g.s), [t] = onPath(gasPath, gasLen, Math.max(0, g.s - 16));
+      const wob = Math.sin((g.s + time * .05 * g.v) / 18) * 2;
+      ctx.strokeStyle = `rgba(240,168,128,${g.a})`;
+      ctx.beginPath(); ctx.moveTo(t[0] + g.o + wob, t[1]); ctx.lineTo(h[0] + g.o + wob, h[1]); ctx.stroke();
     });
     parts.forEach(p => {
       const [pt, seg] = at(p.s);
@@ -854,7 +869,9 @@ figcaption b { font-weight: 500; letter-spacing: .12em; text-transform: uppercas
     });
     ctx.fillStyle = 'rgba(217,191,190,.8)'; ctx.font = '11px "Instrument Sans", sans-serif';
     ctx.textAlign = 'right'; ctx.fillText('원료 투입 ↓', x0 - 10, top + 8);
-    ctx.textAlign = 'left'; ctx.fillText('↑ 열풍', x1 + 10, bottom - 6);
+    ctx.fillStyle = 'rgba(240,168,128,.9)';
+    ctx.textAlign = 'left'; ctx.fillText('↑ 열풍 유입', x1 + 10, bottom - 6);
+    ctx.fillText('배기 ↑', x1 + 10, top + 8);
     if (!reduced && running) requestAnimationFrame(draw);
   }
   let running = true;
